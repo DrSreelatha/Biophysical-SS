@@ -1,0 +1,20 @@
+To read an audio file and plot time and frequency domain sequence using MATLAB.
+clc;
+close all;
+clear all;
+[y , fs] = audioread("audio file.mp3");
+t = linspace(0,length(y)/fs,length(y));
+figure;
+plot(t,y);
+title("time domain")
+xlabel("time")
+ylabel("amplitude")
+nfft=1024;
+f= linspace(0,fs,nfft);
+Y = abs(fft(y,nfft));
+figure;
+plot(f(1:nfft),Y(1:nfft))
+; title("frequency
+domain")
+xlabel("frequency")
+ylabel("abs")
