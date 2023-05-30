@@ -1,0 +1,29 @@
+To Plot u(t-2) +u(t-4), u(t-2)-u(t-4) of the given function for a given interval using MATLAB.
+ % Define the range of time values
+t = linspace(0, 8, 1000);
+% Define the two functions
+f1 = heaviside(t-2) + heaviside(t-4);
+f2 = heaviside(t-2) - heaviside(t-4);
+% Plot the two functions on the same graph
+figure;
+plot(t, f1, 'b-', t, f2, 'r--', 'LineWidth', 1.5);
+grid on;
+xlabel('Time (t)');
+ylabel('Function Value');
+title('Plot of u(t-2) + u(t-4) and u(t-2) - u(t-4)');
+legend('u(t-2) + u(t-4)', 'u(t-2) - u(t-4)', 'Location', 'northeast');
+
+% Add text to the plot
+text(1, 1.5, 'u(t-2) + u(t-4)', 'FontSize', 12);
+text(5, 1.5, 'u(t-2) - u(t-4)', 'FontSize', 12);
+% Add vertical lines to show the time shifts
+hold on;
+line([2 2], ylim, 'Color', 'k', 'LineStyle', '--');
+line([4 4], ylim, 'Color', 'k', 'LineStyle', '--');
+hold off;
+
+
+   
+
+
+	
