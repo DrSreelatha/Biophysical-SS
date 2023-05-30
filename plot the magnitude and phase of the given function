@@ -1,0 +1,22 @@
+To plot the magnitude and phase of the given function for a given interval using
+MATLAB.
+syms w
+%syms lists the names of all symbolic scalar variables, functions,
+%matrix variables, matrix functions, and arrays in the MATLAB workspace.
+X = j*w + (1+j*w);
+mag_X = abs(X); % for the magnitude
+phase_X = angle(X); % for the phase angle
+w_values = -10*pi:0.001:10*pi;
+mag_X_values = subs(mag_X, w, w_values);
+phase_X_values = subs(phase_X, w, w_values);
+figure;
+subplot(2,1,1);
+plot(w_values, mag_X_values);
+xlabel('w');
+ylabel('|X(jw)|');
+title('Magnitude of X(jw)');
+subplot(2,1,2);
+plot(w_values, phase_X_values);
+xlabel('w');
+ylabel('angle(X(jw))')
+title('Phase of X(jw)');
