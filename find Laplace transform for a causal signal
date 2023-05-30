@@ -1,0 +1,13 @@
+Write a MATLAB program to find Laplace transform of the following standard causal
+signals.
+a) t b) e -at c)cos ω
+syms t s a w
+% Laplace transform of signal t
+F1 = laplace(t, t, s);
+pretty(F1)
+% Laplace transform of signal exp(-a*t)
+F2 = laplace(exp(-a*t), t, s);
+pretty(F2)
+% Laplace transform of signal cos(w*t)
+F3 = laplace(cos(w*t), t, s);
+pretty(F3)
