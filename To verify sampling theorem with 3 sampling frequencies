@@ -1,0 +1,46 @@
+To verify sampling theorem with 3 sampling frequencies
+i) fs≥2fm
+ii) fs=2fm
+iii) fs≤2fm
+% Define the parameters
+f_signal = 1000; % Signal frequency
+f_max = 500; % Maximum frequency in the signal
+T_signal = 1/f_signal; % Signal period
+T_max = 1/f_max; % Maximum period in the signal
+% Set the sampling frequencies
+fs1 = 300; % fs < 2fm
+fs2 = 1000; % fs = 2fm
+fs3 = 2000; % fs > 2fm
+% Compute the number of samples per period
+n1 = fs1*T_signal;
+n2 = fs2*T_signal;
+n3 = fs3*T_signal;
+% Define the time vector for the signal
+t = 0:T_signal/1000:10*T_signal;
+% Generate the signal
+x = sin(2*pi*f_signal*t);
+% Sample the signal at the three different sampling frequencies
+x1 = x(1:n1:end);
+x2 = x(1:n2:end);
+x3 = x(1:n3:end);
+% Plot the original signal and the three sampled signals
+subplot(2,2,1)
+plot(t,x)
+title('Original Signal')
+xlabel('Time (s)')
+ylabel('Amplitude')
+subplot(2,2,2)
+stem(0:T_signal:(length(x1)-1)*T_signal, x1)
+title('Sampled Signal (fs <= 2fm)')
+xlabel('Time (s)')
+ylabel('Amplitude')
+subplot(2,2,3)
+stem(0:T_signal:(length(x2)-1)*T_signal, x2)
+title('Sampled Signal (fs = 2fm)')
+xlabel('Time (s)')
+ylabel('Amplitude')
+subplot(2,2,4)
+stem(0:T_signal:(length(x3)-1)*T_signal, x3)
+title('Sampled Signal (fs >= 2fm)')
+xlabel('Time (s)')
+y
