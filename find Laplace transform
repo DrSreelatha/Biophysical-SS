@@ -1,0 +1,21 @@
+To Write a MATLAB program to find Laplace transform of the following standard causal signals.  
+syms t s n a; % Define symbolic variables
+n = input('Enter a value for n: ');
+% Laplace transform of tn
+f1 = t^n;
+F1 = laplace(f1);
+% Laplace transform of tn-1/(n-1)!
+f2 = (t^(n-1))/(factorial(n-1));
+F2 = laplace(f2);
+% Laplace transform of tne-at
+f3 = t^n * exp(-a*t);
+F3 = laplace(f3);
+% Display results
+fprintf('Input of n is:');
+disp(n);
+fprintf('corresponding to the n value,Laplace transform of tn: ');
+disp(F1);
+fprintf('corresponding to the n value,Laplace transform of tn-1/(n-1)!: ');
+disp(F2);
+fprintf('corresponding to the n value,Laplace transform of tne-at: ');
+disp(F3);
