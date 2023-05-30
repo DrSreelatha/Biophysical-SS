@@ -1,0 +1,29 @@
+AIM: Write a MATLAB program to perform convolution of signals,x1(t)= e -2t
+u(t) and x2 (t)=e 6t u(t),using Fourier transform
+% Define the time range and step size
+t = -5:0.01:5;
+% Define the signals
+x1 = exp(-2*t).*heaviside(t);
+x2 = exp(6*t).*heaviside(t);
+% Calculate the Fourier transforms
+X1 = fft(x1);
+X2 = fft(x2);
+% Perform the convolution using the frequency domain method
+Y = X1.*X2;
+y = ifft(Y);
+% Plot the signals and the convolution result
+subplot(3,1,1)
+plot(t, x1)
+title('x1(t)')
+xlabel('Time (s)')
+ylabel('Amplitude')
+subplot(3,1,2)
+plot(t, x2)
+title('x2(t)')
+xlabel('Time (s)')
+ylabel('Amplitude')
+subplot(3,1,3)
+plot(t, y)
+title('Convolution result')
+xlabel('Time (s)')
+ylabel('Amplitude')
