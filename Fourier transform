@@ -1,0 +1,22 @@
+To determine the Fourier transform of a signal using the command FFT x= A*sin
+2*π*10*t
+% Define signal parameters
+A = 1; % Amplitude
+f = 10; % Frequency (Hz)
+T = 1/f; % Period
+Fs = 1000; % Sampling frequency
+t = 0:1/Fs:T-1/Fs; % Time vector
+% Define signal
+x = A*sin(2*pi*f*t);
+% Compute FFT
+X = fft(x);
+% Compute frequency axis
+N = length(X);
+df = Fs/N; % Frequency resolution
+f_axis = 0:df:Fs/2-df; % Positive frequency axis
+% Plot frequency spectrum
+figure;
+plot(f_axis, abs(X(1:N/2)));
+xlabel(&#39;Frequency (Hz)&#39;);
+ylabel(&#39;Magnitude&#39;);
+title(&#39;Frequency Spectrum of x = A*sin(2*pi*10*t)&#39;);
